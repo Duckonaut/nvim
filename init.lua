@@ -15,5 +15,6 @@ require('cmp-settings')
 require('lsp')
 require('nvimtree')
 require('dashboard')
+require('lualine-settings')
 
 vim.cmd('colorscheme onedarker')
