@@ -8,7 +8,6 @@ vim.opt.mouse= 'a'
 vim.opt.termguicolors = true
 vim.opt.clipboard = 'unnamedplus'
 
-
 require('plugins')
 require('mappings')
 require('cmp-settings')
