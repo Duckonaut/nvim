@@ -5,7 +5,7 @@ vim.opt.shiftwidth=4
 vim.opt.smarttab = true
 vim.opt.softtabstop=4
 vim.opt.mouse= 'a'
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 vim.opt.clipboard = 'unnamedplus'
 
 require('plugins')

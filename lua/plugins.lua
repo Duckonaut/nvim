@@ -18,6 +18,10 @@ packer.init {
 return packer.startup(function()
   use { 'wbthomason/packer.nvim'}
   use { 'neovim/nvim-lspconfig'}
+  use { 'nvim-lua/lsp_extensions.nvim',
+	config = function()
+		require('lsp_extensions')
+	end}
   use { 'tamago324/nlsp-settings.nvim'}
   use { 'jose-elias-alvarez/null-ls.nvim'}
   use { 'williamboman/nvim-lsp-installer'}

@@ -21,6 +21,7 @@ map(normal_mode, '<C-k>', '<C-w>k', opts)
 map(normal_mode, '<C-l>', '<C-w>l', opts)
 
 map(normal_mode, "<leader>e", ":NvimTreeToggle<CR>", opts)
+map(normal_mode, "<leader>T", ":lua require'lsp_extensions'.inlay_hints()<CR>", opts)
 
 map(normal_mode, '<C-Up>', ':resize -2<CR>', opts)
 map(normal_mode, '<C-Down>', ':resize +2<CR>', opts)
@@ -34,3 +35,4 @@ map(term_mode, "<C-h>", "<C-\\><C-N><C-W>h", term_opts)
 map(term_mode, "<C-j>", "<C-\\><C-N><C-W>j", term_opts)
 map(term_mode, "<C-k>", "<C-\\><C-N><C-W>k", term_opts)
 map(term_mode, "<C-l>", "<C-\\><C-N><C-W>l", term_opts)
+
