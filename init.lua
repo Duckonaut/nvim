@@ -1,19 +1,20 @@
+ConfigMode = "rich" -- changes the config to suit either a full nerdfont/truecolor setup, or a simple 8 color tty ('rich' or 'simple')
+
 vim.opt.number = true
 vim.opt.autoindent = true
-vim.opt.tabstop=4
-vim.opt.shiftwidth=4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
-vim.opt.softtabstop=4
-vim.opt.mouse= 'a'
--- vim.opt.termguicolors = true
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.softtabstop = 4
+vim.opt.mouse = "a"
 
-require('plugins')
-require('mappings')
-require('cmp-settings')
-require('lsp')
-require('nvimtree')
-require('dashboard')
-require('lualine-settings')
+if ConfigMode == "rich" then
+	vim.opt.termguicolors = true
+	vim.opt.clipboard = "unnamedplus"
+	vim.cmd("colorscheme onedarker")
+end
 
-vim.cmd('colorscheme onedarker')
+require("plugins")
+require("mappings")
+require("lsp")
+require("plugin-config")

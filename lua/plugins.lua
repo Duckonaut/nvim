@@ -1,129 +1,64 @@
-local packer = require('packer')
+local packer = require("packer")
 
-vim.cmd [[
+vim.cmd([[
 	augroup packer_user_config
 		autocmd!
 		autocmd BufWritePost plugins.lua source <afile> | PackerSync
 	augroup end
-]]
+]])
 
-packer.init {
+packer.init({
 	display = {
 		open_fn = function()
-			return require('packer.util').float { border = "rounded" }
-		end
-	}
-}
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
 
 return packer.startup(function()
-  use { 'wbthomason/packer.nvim'}
-  use { 'neovim/nvim-lspconfig'}
-  use { 'nvim-lua/lsp_extensions.nvim',
-	config = function()
-		require('lsp_extensions')
-	end}
-  use { 'tamago324/nlsp-settings.nvim'}
-  use { 'jose-elias-alvarez/null-ls.nvim'}
-  use { 'williamboman/nvim-lsp-installer'}
-  use { 'rcarriga/nvim-notify'}
-  use { 'lunarvim/colorschemes' }
-  use { 'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
-    config = function()
-      return {
-        defaults = {
-          prompt_prefix = " ",
-          selection_caret = " ",
-          entry_prefix = "  ",
-          initial_mode = "insert",
-        selection_strategy = "reset",
-          sorting_strategy = "descending",
-        layout_strategy = "horizontal",
-        layout_config = {
-          width = 0.75,
-          preview_cutoff = 120,
-          horizontal = { mirror = false },
-          vertical = { mirror = false },
-        },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-          "--glob=!.git/",
-        },
-        mappings = {
-          i = {
---            ["<C-n>"] = actions.move_selection_next,
---            ["<C-p>"] = actions.move_selection_previous,
---            ["<C-c>"] = actions.close,
---            ["<C-j>"] = actions.cycle_history_next,
---            ["<C-k>"] = actions.cycle_history_prev,
---            ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
---            ["<CR>"] = actions.select_default + actions.center,
-          },
-          n = {
---            ["<C-n>"] = actions.move_selection_next,
---            ["<C-p>"] = actions.move_selection_previous,
---            ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-          },
-        },
-        file_ignore_patterns = {},
-        path_display = { shorten = 5 },
-        winblend = 0,
-        border = {},
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-        color_devicons = true,
-        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        pickers = {
-          find_files = {
-            find_command = { "fd", "--type=file", "--hidden", "--smart-case" },
-          },
-          live_grep = {
-            --@usage don't include the filename in the search results
-            only_sort_text = true,
-          },
-        },
-      },
-    }
-    end
-  }
-  use { 'nvim-telescope/telescope-fzf-native.nvim'}
+	use({ "wbthomason/packer.nvim" }) -- plugin manager
+	use({ "neovim/nvim-lspconfig" }) -- allows for configuration of the LSP system
+	use({
+		"nvim-lua/lsp_extensions.nvim", -- adds extra features to some languages using LSPP
+		config = function()
+			require("lsp_extensions") -- just starts lsp_extensions so it's really ok here
+		end,
+	})
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- formatter
+	use({ "williamboman/nvim-lsp-installer" }) -- super easy LSP server installer
+	use({ "rcarriga/nvim-notify" }) -- pretty notifications
+	use({
+		"nvim-telescope/telescope.nvim", -- anything-finder with a nice UI
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim" }) -- fast backend for telescope
 
-  use { 'hrsh7th/nvim-cmp',
-        requires = {
-          'L3MON4D3/LuaSnip',
-          'rafamadriz/friendly-snippets'
-        }
-  } 
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { "rafamadriz/friendly-snippets" }
+	use({
+		"hrsh7th/nvim-cmp", -- completion menu
+		requires = {
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
+		},
+	})
+	use({ "hrsh7th/cmp-nvim-lsp" }) -- cmp LSP source
+	use({ "hrsh7th/cmp-buffer" }) -- cmp raw text source
+	use({ "hrsh7th/cmp-path" }) -- cmp filesystem source
+	use({ "hrsh7th/cmp-cmdline" }) -- cmp shell command source
+	use({ "saadparwaiz1/cmp_luasnip" }) -- cmp snippet source
+	use({ "L3MON4D3/LuaSnip" }) -- snippet engine
+	use({ "rafamadriz/friendly-snippets" }) -- snippet collection
 
-
-  use { 'windwp/nvim-autopairs' }
-  use { 'nvim-treesitter/nvim-treesitter' }
-  use { 'kyazdani42/nvim-tree.lua' }
-  use { 'folke/which-key.nvim',
-    config = function()
-      require('which-key').setup(require('whichkey'))
-    end
-  }
-  use { 'numToStr/Comment.nvim' }
-  use { 'kyazdani42/nvim-web-devicons' }
-  use { 'nvim-lualine/lualine.nvim' }
-  use { 'akinsho/bufferline.nvim' }
-  use { 'mfussenegger/nvim-dap' }
-  use { 'Pocco81/DAPInstall.nvim' }
-  use { 'ChristianChiarulli/dashboard-nvim' }
-  use { 'akinsho/toggleterm.nvim' }
-  use { 'b0o/schemastore.nvim' }
+	use({ "windwp/nvim-autopairs" }) -- automatic parentheses and braces pairs
+	use({ "nvim-treesitter/nvim-treesitter" }) -- greater syntax highlighting
+	use({ "kyazdani42/nvim-tree.lua" }) -- file explorer
+	use({ "folke/which-key.nvim" }) -- for when you don't know a key combination
+	use({ "numToStr/Comment.nvim" }) -- comment out sections of code in a ton of languages
+	use({ "nvim-lualine/lualine.nvim" }) -- status bar at the bottom
+	use({ "akinsho/bufferline.nvim" }) -- buffer tabs at the top
+	use({ "mfussenegger/nvim-dap" }) -- debugger
+	use({ "Pocco81/DAPInstall.nvim" }) -- debugger installerr
+	use({ "ChristianChiarulli/dashboard-nvim" }) -- very nice looking start page
+	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
+	use({ "lunarvim/colorschemes" }) -- nice colorschemes for rich mode
+	use({ "kyazdani42/nvim-web-devicons" }) -- cool pretty icons
 end)
