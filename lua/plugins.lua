@@ -60,5 +60,6 @@ return packer.startup(function()
 	use({ "ChristianChiarulli/dashboard-nvim" }) -- very nice looking start page
 	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
 	use({ "lunarvim/colorschemes" }) -- nice colorschemes for rich mode
+	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "kyazdani42/nvim-web-devicons", opt = true }) -- cool pretty icons
 end)

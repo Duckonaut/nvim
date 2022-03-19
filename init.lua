@@ -10,6 +10,7 @@ vim.opt.mouse = "a"
 
 if ConfigMode == "rich" then
 	vim.opt.termguicolors = true
+	vim.o.background = "dark"
 	vim.opt.clipboard = "unnamedplus"
 	vim.cmd("colorscheme onedarker")
 end
