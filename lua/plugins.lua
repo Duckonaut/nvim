@@ -61,5 +61,7 @@ return packer.startup(function()
 	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
 	use({ "lunarvim/colorschemes" }) -- nice colorschemes for rich mode
 	use({ "ellisonleao/gruvbox.nvim" })
+	use({ "drewtempelmeyer/palenight.vim" })
 	use({ "kyazdani42/nvim-web-devicons", opt = true }) -- cool pretty icons
+	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 end)

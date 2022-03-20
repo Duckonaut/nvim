@@ -8,9 +8,9 @@ local component_separators = { left = "", right = "" }
 local section_separators = { left = "", right = "" }
 
 if ConfigMode == "rich" then
-	icons_enabled = true
-	component_separators = { left = "", right = "" }
-	section_separators = { left = "", right = "" }
+	--icons_enabled = true
+	--component_separators = { left = "", right = "" }
+	--section_separators = { left = "", right = "" }
 end
 
 lualine.setup({
