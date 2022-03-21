@@ -65,3 +65,44 @@ whichkey.setup({
 		v = { "j", "k" },
 	},
 })
+
+whichkey.register({
+	["|"] = "Create a side-by-side split",
+	["-"] = "Create top-bottom split",
+	e = "Open NvimTree",
+	T = "Show inlay hints",
+	f = "Format file using LSP",
+	r = {
+		name = "Rust tools",
+		c = "Rust code action menu",
+		i = "Inlay hints",
+	},
+	L = {
+		name = "LspInstall",
+		i = "Install",
+		I = "Install Info",
+		u = "Uninstall",
+		l = "Log",
+	},
+	l = {
+		name = "LSP",
+		i = "Info",
+		x = "Stop",
+		s = "Start",
+	},
+	t = {
+		name = "Telescope",
+		o = "Open",
+		d = "Diagnostics",
+		q = "Quickfix",
+		f = "Find file",
+		c = "Code actions",
+		l = "Live Grep",
+		g = {
+			name = "Git",
+			s = "Status",
+			c = "Commits",
+			b = "Branches",
+		},
+	},
+}, { prefix = "<leader>" })

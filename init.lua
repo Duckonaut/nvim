@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 vim.opt.softtabstop = 4
 vim.opt.mouse = "a"
+vim.opt.scl = "yes"
 
 if ConfigMode == "rich" then
 	vim.opt.termguicolors = true
