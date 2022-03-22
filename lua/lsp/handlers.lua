@@ -15,7 +15,10 @@ M.setup = function()
 
   local config = {
     -- enable virtual text
-    virtual_text = true,
+    virtual_text = {
+      prefix = "",
+      spacing = 1,
+    },
     -- show signs
     signs = {
       active = signs,
