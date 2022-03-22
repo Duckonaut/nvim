@@ -89,6 +89,18 @@ whichkey.register({
 		i = "Info",
 		x = "Stop",
 		s = "Start",
+		h = "Hover",
+		H = "Signature Help",
+		r = "Rename",
+		c = "Code action",
+		f = "Open Float",
+		g = {
+			name = "Go to...",
+			d = "Declaration",
+			D = "Definition",
+			i = "Implementation",
+			r = "References"
+		}
 	},
 	t = {
 		name = "Telescope",
