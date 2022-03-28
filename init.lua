@@ -8,6 +8,7 @@ vim.opt.smarttab = true
 vim.opt.softtabstop = 4
 vim.opt.mouse = "a"
 vim.opt.scl = "yes"
+vim.opt.guifont = "Hack:h10"
 
 if ConfigMode == "rich" then
 	vim.opt.termguicolors = true

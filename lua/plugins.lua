@@ -7,6 +7,8 @@ vim.cmd([[
 	augroup end
 ]])
 
+
+
 packer.init({
 	display = {
 		open_fn = function()
@@ -24,7 +26,8 @@ return packer.startup(function()
 			require("lsp_extensions") -- just starts lsp_extensions so it's really ok here
 		end,
 	})
-	use({ 'simrat39/rust-tools.nvim' })
+	use({ "github/copilot.vim" })
+	use({ "simrat39/rust-tools.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- formatter
 	use({ "williamboman/nvim-lsp-installer" }) -- super easy LSP server installer
 	use({ "rcarriga/nvim-notify" }) -- pretty notifications
