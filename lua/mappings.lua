@@ -51,6 +51,8 @@ map(normal_mode, "<leader>LI", ":LspInstallInfo<CR>", opts)
 map(normal_mode, "<leader>Ll", ":LspInstallLog<CR>", opts)
 
 -- LSP
+map(insert_mode, "<C-.>", "<cmd>Telescope quickfix<CR>", opts)
+
 map(normal_mode, "<leader>li", ":LspInfo<CR>", opts)
 map(normal_mode, "<leader>lx", ":LspStop<CR>", opts)
 map(normal_mode, "<leader>ls", ":LspStart<CR>", opts)
