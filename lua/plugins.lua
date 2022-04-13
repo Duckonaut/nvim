@@ -61,7 +61,7 @@ return packer.startup(function()
 	use({ "akinsho/bufferline.nvim" }) -- buffer tabs at the top
 	use({ "mfussenegger/nvim-dap" }) -- debugger
 	use({ "Pocco81/DAPInstall.nvim" }) -- debugger installerr
-	use({ "ChristianChiarulli/dashboard-nvim" }) -- very nice looking start page
+--	use({ "ChristianChiarulli/dashboard-nvim" }) -- very nice looking start page
 	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
 	use({ "lunarvim/colorschemes" }) -- nice colorschemes for rich mode
 	use({ "ellisonleao/gruvbox.nvim" })
