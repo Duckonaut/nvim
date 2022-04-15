@@ -53,7 +53,7 @@ return packer.startup(function()
 	use({ "rafamadriz/friendly-snippets" }) -- snippet collection
 
 	use({ "windwp/nvim-autopairs" }) -- automatic parentheses and braces pairs
-	use({ "nvim-treesitter/nvim-treesitter" }) -- greater syntax highlighting
+	use({ "nvim-treesitter/nvim-treesitter", before = "neorg" }) -- greater syntax highlighting
 	use({ "kyazdani42/nvim-tree.lua" }) -- file explorer
 	use({ "folke/which-key.nvim" }) -- for when you don't know a key combination
 	use({ "numToStr/Comment.nvim" }) -- comment out sections of code in a ton of languages
@@ -68,4 +68,10 @@ return packer.startup(function()
 	use({ "drewtempelmeyer/palenight.vim" })
 	use({ "kyazdani42/nvim-web-devicons", opt = true }) -- cool pretty icons
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
+    use({ "tikhomirov/vim-glsl" })
+
+    use ({
+        "nvim-neorg/neorg",
+        requires = "nvim-lua/plenary.nvim"
+    })
 end)

@@ -22,3 +22,7 @@ require("plugins")
 require("mappings")
 require("lsp")
 require("plugin-config")
+
+vim.cmd([[
+    autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+]])
