@@ -69,6 +69,7 @@ return packer.startup(function()
 	use({ "kyazdani42/nvim-web-devicons", opt = true }) -- cool pretty icons
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
     use({ "tikhomirov/vim-glsl" })
+    use({ "ARM9/arm-syntax-vim" })
 
     use ({
         "nvim-neorg/neorg",
