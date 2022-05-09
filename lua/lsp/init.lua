@@ -7,7 +7,15 @@ require('lsp.handlers').setup()
 local lsp_installer = require("nvim-lsp-installer")
 
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+    local opts = {
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                }
+            }
+        }
+    }
 
     if server.name == "rust_analyzer" then
         -- Initialize the LSP via rust-tools instead
@@ -19,8 +27,6 @@ lsp_installer.on_server_ready(function(server)
             server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
         }
         server:attach_buffers()
-        -- Only if standalone support is needed
-        require("rust-tools").start_standalone_if_required()
     else
         server:setup(opts)
     end
