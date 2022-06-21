@@ -1,8 +1,10 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 
+
+local icons = {}
 if ConfigMode == "rich" then
-	vim.g.nvim_tree_icons = {
+	icons = {
 		default = "",
 		symlink = "",
 		git = {
@@ -23,7 +25,7 @@ if ConfigMode == "rich" then
 		},
 	}
 else
-	vim.g.nvim_tree_icons = {
+	icons = {
 		default = "f ",
 		symlink = "fs",
 		git = { -- ignored, we don't use it in simple ConfigMode
@@ -122,4 +124,9 @@ nvim_tree.setup({
 		number = false,
 		relativenumber = false,
 	},
+    renderer = {
+        icons = {
+            glyphs = icons,
+        }
+    }
 })
