@@ -41,8 +41,7 @@ map(normal_mode, "<leader>-", ":split<CR><C-w><C-w>", opts)
 map(normal_mode, "<leader>|", ":vsplit<CR><C-w><C-w>", opts)
 
 -- rust mappings
-map(normal_mode, "<leader>rc", ":RustCodeAction<CR>", opts)
-map(normal_mode, "<leader>ri", ":RustToggleInlayHints<CR>", opts)
+map(normal_mode, "<leader>ri", ":lua require('rust-tools.inlay_hints').set_inlay_hints()<CR>", opts)
 
 -- LspInstall
 map(normal_mode, "<leader>Li", ":LspInstall ", opts)

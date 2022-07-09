@@ -123,6 +123,7 @@ nvim_tree.setup({
 		},
 		number = false,
 		relativenumber = false,
+        preserve_window_proportions = true
 	},
     renderer = {
         icons = {
