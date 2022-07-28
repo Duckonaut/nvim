@@ -38,7 +38,7 @@ lsp_installer.on_server_ready(function(server)
             -- settings rust-tools will provide to lspconfig during init.
             -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
             -- with the user's own settings (opts).
-            server = vim.tbl_deep_extend("force", server:get_default_options(), rust_opts),
+            --server = vim.tbl_deep_extend("force", server:get_default_options(), rust_opts),
             tools = { -- rust-tools options
                 autoSetHints = true,
                 hover_with_actions = true,

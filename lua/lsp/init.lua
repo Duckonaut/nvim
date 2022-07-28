@@ -1,5 +1,10 @@
-local status, _ = pcall(require, 'lspconfig')
+local status, lspconfig = pcall(require, 'lspconfig')
 if not status then return end
 
 require('lsp.lsp-installer')
-require('lsp.handlers').setup()
+local handlers = require('lsp.handlers')
+handlers.setup()
+
+lspconfig.gdscript.setup {
+    capabilities = handlers.capabilities,
+}
