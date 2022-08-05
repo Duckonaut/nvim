@@ -28,7 +28,6 @@ return packer.startup(function()
 	})
 	use({ "github/copilot.vim" })
 	use({ "simrat39/rust-tools.nvim" })
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- formatter
 	use({ "williamboman/nvim-lsp-installer" }) -- super easy LSP server installer
 	use({ "rcarriga/nvim-notify" }) -- pretty notifications
 	use({
@@ -58,15 +57,10 @@ return packer.startup(function()
 	use({ "folke/which-key.nvim" }) -- for when you don't know a key combination
 	use({ "numToStr/Comment.nvim" }) -- comment out sections of code in a ton of languages
 	use({ "nvim-lualine/lualine.nvim" }) -- status bar at the bottom
-	use({ "akinsho/bufferline.nvim" }) -- buffer tabs at the top
 	use({ "mfussenegger/nvim-dap" }) -- debugger
 	use({ "Pocco81/DAPInstall.nvim" }) -- debugger installerr
---	use({ "ChristianChiarulli/dashboard-nvim" }) -- very nice looking start page
 	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
---  use({ "lunarvim/colorschemes" }) -- nice colorschemes for rich mode
     use({ "AlphaTechnolog/onedarker.nvim" })
-	use({ "ellisonleao/gruvbox.nvim" })
-	use({ "drewtempelmeyer/palenight.vim" })
 	use({ "kyazdani42/nvim-web-devicons", opt = true }) -- cool pretty icons
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
     use({ "tikhomirov/vim-glsl" })
