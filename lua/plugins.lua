@@ -28,7 +28,8 @@ return packer.startup(function()
 	})
 	use({ "github/copilot.vim" })
 	use({ "simrat39/rust-tools.nvim" })
-	use({ "williamboman/nvim-lsp-installer" }) -- super easy LSP server installer
+	use({ "williamboman/mason.nvim" }) -- new LSP server installer
+	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "rcarriga/nvim-notify" }) -- pretty notifications
 	use({
 		"nvim-telescope/telescope.nvim", -- anything-finder with a nice UI
@@ -58,7 +59,8 @@ return packer.startup(function()
 	use({ "numToStr/Comment.nvim" }) -- comment out sections of code in a ton of languages
 	use({ "nvim-lualine/lualine.nvim" }) -- status bar at the bottom
 	use({ "mfussenegger/nvim-dap" }) -- debugger
-	use({ "Pocco81/DAPInstall.nvim" }) -- debugger installerr
+    use({ "mfussenegger/nvim-lint" }) -- linter
+    use({ "mhartington/formatter.nvim" }) -- formatter
 	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
     use({ "AlphaTechnolog/onedarker.nvim" })
 	use({ "kyazdani42/nvim-web-devicons", opt = true }) -- cool pretty icons
