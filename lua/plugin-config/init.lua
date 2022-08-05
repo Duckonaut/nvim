@@ -1,3 +1,4 @@
+require("plugin-config.luasnip")
 require("plugin-config.cmp")
 require("plugin-config.dashboard")
 require("plugin-config.web-devicons")

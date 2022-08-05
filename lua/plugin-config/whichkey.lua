@@ -70,6 +70,7 @@ whichkey.register({
 	["|"] = "Create a side-by-side split",
 	["-"] = "Create top-bottom split",
 	e = "Open NvimTree",
+    s = "Open Symbols Outline",
 	T = "Show inlay hints",
 	f = "Format file using LSP",
 	r = {

@@ -71,6 +71,7 @@ return packer.startup(function()
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
     use({ "tikhomirov/vim-glsl" })
     use({ "ARM9/arm-syntax-vim" })
+    use({ "simrat39/symbols-outline.nvim" })
 
     use ({
         "nvim-neorg/neorg",

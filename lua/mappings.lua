@@ -81,3 +81,6 @@ map(normal_mode, "<leader>tl", ":Telescope live_grep<CR>", opts)
 map(normal_mode, "<leader>tgs", ":Telescope git_status<CR>", opts)
 map(normal_mode, "<leader>tgc", ":Telescope git_commits<CR>", opts)
 map(normal_mode, "<leader>tgb", ":Telescope git_branches<CR>", opts)
+
+-- Symbols outline
+map(normal_mode, "<leader>s", ":SymbolsOutline<CR>", opts)
