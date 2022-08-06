@@ -51,14 +51,9 @@ lspconfig.wgsl_analyzer.setup(wgsl_analyzer_opts)
 
 local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
 opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
-lspconfig.rust_analyzer.setup(rust_analyzer_opts)
 
 require("rust-tools").setup {
-    -- The "server" property provided in rust-tools setup function are the
-    -- settings rust-tools will provide to lspconfig during init.
-    -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
-    -- with the user's own settings (opts).
-    --server = vim.tbl_deep_extend("force", server:get_default_options(), rust_opts),
+    server = rust_analyzer_opts,
     tools = { -- rust-tools options
         autoSetHints = true,
         hover_with_actions = true,
