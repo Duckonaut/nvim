@@ -78,8 +78,8 @@ whichkey.register({
 		c = "Rust code action menu",
 		i = "Inlay hints",
 	},
-	L = {
-		name = "LspInstall",
+	M = {
+		name = "Mason",
 		i = "Install",
 		I = "Install Info",
 		u = "Uninstall",
