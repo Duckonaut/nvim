@@ -68,6 +68,8 @@ return packer.startup(function()
     use({ "tikhomirov/vim-glsl" })
     use({ "ARM9/arm-syntax-vim" })
     use({ "simrat39/symbols-outline.nvim" })
+    use({ "jiaoshijie/undotree" })
+    use({ "elkowar/yuck.vim" })
 
     use ({
         "nvim-neorg/neorg",
