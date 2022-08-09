@@ -43,11 +43,11 @@ map(normal_mode, "<leader>|", ":vsplit<CR><C-w><C-w>", opts)
 -- rust mappings
 map(normal_mode, "<leader>ri", ":lua require('rust-tools.inlay_hints').set_inlay_hints()<CR>", opts)
 
--- LspInstall
-map(normal_mode, "<leader>Li", ":LspInstall ", opts)
-map(normal_mode, "<leader>Lu", ":LspUninstall ", opts)
-map(normal_mode, "<leader>LI", ":LspInstallInfo<CR>", opts)
-map(normal_mode, "<leader>Ll", ":LspInstallLog<CR>", opts)
+-- Mason
+map(normal_mode, "<leader>Mi", ":MasonInstall ", opts)
+map(normal_mode, "<leader>Mu", ":MasonUninstall ", opts)
+map(normal_mode, "<leader>MI", ":Mason<CR>", opts)
+map(normal_mode, "<leader>Ml", ":masonLog<CR>", opts)
 
 -- LSP
 map(insert_mode, "<C-.>", "<cmd>Telescope quickfix<CR>", opts)
@@ -81,3 +81,6 @@ map(normal_mode, "<leader>tl", ":Telescope live_grep<CR>", opts)
 map(normal_mode, "<leader>tgs", ":Telescope git_status<CR>", opts)
 map(normal_mode, "<leader>tgc", ":Telescope git_commits<CR>", opts)
 map(normal_mode, "<leader>tgb", ":Telescope git_branches<CR>", opts)
+
+-- Symbols outline
+map(normal_mode, "<leader>s", ":SymbolsOutline<CR>", opts)
