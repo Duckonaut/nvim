@@ -31,7 +31,7 @@
 
 (identifier) @variable
 
-(call callee: (primary (identifier) @function))
+(primaryCall callee: (primary (identifier) @function))
 (function name: (identifier) @function)
 (function params: (parameters (identifier) @variable.parameter))
 
