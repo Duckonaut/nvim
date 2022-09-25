@@ -70,9 +70,4 @@ return packer.startup(function()
     use({ "simrat39/symbols-outline.nvim" })
     use({ "jiaoshijie/undotree" })
     use({ "elkowar/yuck.vim" })
-
-    use ({
-        "nvim-neorg/neorg",
-        requires = "nvim-lua/plenary.nvim"
-    })
 end)

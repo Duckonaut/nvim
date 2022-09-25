@@ -49,6 +49,10 @@ local wgsl_analyzer_opts = require("lsp.settings.wgsl-analyzer")
 opts = vim.tbl_deep_extend("force", wgsl_analyzer_opts, opts)
 lspconfig.wgsl_analyzer.setup(wgsl_analyzer_opts)
 
+local omnisharp_opts = require("lsp.settings.omnisharp")
+opts = vim.tbl_deep_extend("force", omnisharp_opts, opts)
+lspconfig.omnisharp.setup(omnisharp_opts)
+
 local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
 opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
 
@@ -56,7 +60,6 @@ require("rust-tools").setup {
     server = rust_analyzer_opts,
     tools = { -- rust-tools options
         autoSetHints = true,
-        hover_with_actions = true,
         inlay_hints = {
             show_parameter_hints = true,
             parameter_hints_prefix = " ",
