@@ -56,9 +56,8 @@ lspconfig.omnisharp.setup(omnisharp_opts)
 local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
 opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
 
---local codelldb = mason.get_package("codelldb")
---print("codelldb", codelldb)
-local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.7/'
+local codelldb = require('mason-registry').get_package("codelldb"):get_install_path()
+local extension_path = codelldb .. '/extension/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
