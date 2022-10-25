@@ -59,6 +59,7 @@ return packer.startup(function()
 	use({ "numToStr/Comment.nvim" }) -- comment out sections of code in a ton of languages
 	use({ "nvim-lualine/lualine.nvim" }) -- status bar at the bottom
 	use({ "mfussenegger/nvim-dap" }) -- debugger
+    use({ "rcarriga/nvim-dap-ui" }) -- debugger UI
     use({ "mfussenegger/nvim-lint" }) -- linter
     use({ "mhartington/formatter.nvim" }) -- formatter
 	use({ "b0o/schemastore.nvim" }) -- json schema store for autocompletion in common json formats
