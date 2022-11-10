@@ -53,7 +53,7 @@ return packer.startup(function()
 	use({ "rafamadriz/friendly-snippets" }) -- snippet collection
 
 	use({ "windwp/nvim-autopairs" }) -- automatic parentheses and braces pairs
-	use({ "nvim-treesitter/nvim-treesitter", before = "neorg" }) -- greater syntax highlighting
+	use({ "nvim-treesitter/nvim-treesitter" }) -- greater syntax highlighting
 	use({ "kyazdani42/nvim-tree.lua" }) -- file explorer
 	use({ "folke/which-key.nvim" }) -- for when you don't know a key combination
 	use({ "numToStr/Comment.nvim" }) -- comment out sections of code in a ton of languages
