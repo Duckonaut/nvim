@@ -1,6 +1,11 @@
-local status_ok, mason, lspconfig, handlers
+local status_ok, mason, mason_lspconfig, lspconfig, handlers
 
 status_ok, mason = pcall(require, "mason")
+if not status_ok then
+    return
+end
+
+status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok then
     return
 end
@@ -17,6 +22,7 @@ end
 
 handlers.setup()
 mason.setup()
+mason_lspconfig.setup()
 
 local opts = {
     on_attach = handlers.on_attach,
