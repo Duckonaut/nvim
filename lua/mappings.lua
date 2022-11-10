@@ -36,7 +36,7 @@ map(term_mode, "<C-l>", "<C-\\><C-N><C-W>l", term_opts)
 -- leader mappings
 map(normal_mode, "<leader>e", ":NvimTreeToggle<CR>", opts)
 map(normal_mode, "<leader>T", ":lua require'lsp_extensions'.inlay_hints()<CR>", opts)
-map(normal_mode, "<leader>f", ":lua vim.lsp.buf.formatting_sync()<CR>", opts)
+map(normal_mode, "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
 map(normal_mode, "<leader>-", ":split<CR><C-w><C-w>", opts)
 map(normal_mode, "<leader>|", ":vsplit<CR><C-w><C-w>", opts)
 
@@ -84,3 +84,14 @@ map(normal_mode, "<leader>tgb", ":Telescope git_branches<CR>", opts)
 
 -- Symbols outline
 map(normal_mode, "<leader>s", ":SymbolsOutline<CR>", opts)
+
+-- DAP
+map(normal_mode, "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+map(normal_mode, "<leader>dc", ":lua require'dap'.continue()<CR>", opts)
+map(normal_mode, "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
+map(normal_mode, "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
+map(normal_mode, "<leader>du", ":lua require'dapui'.toggle()<CR>", opts)
+map(normal_mode, "<F9>", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+map(normal_mode, "<F5>", ":lua require'dap'.continue()<CR>", opts)
+map(normal_mode, "<F11>", ":lua require'dap'.step_into()<CR>", opts)
+map(normal_mode, "<F10>", ":lua require'dap'.step_over()<CR>", opts)

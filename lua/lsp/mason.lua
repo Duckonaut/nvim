@@ -62,6 +62,11 @@ lspconfig.omnisharp.setup(omnisharp_opts)
 local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
 opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
 
+local codelldb = require('mason-registry').get_package("codelldb"):get_install_path()
+local extension_path = codelldb .. '/extension/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
 require("rust-tools").setup {
     server = rust_analyzer_opts,
     tools = { -- rust-tools options
@@ -71,5 +76,9 @@ require("rust-tools").setup {
             parameter_hints_prefix = " ",
             other_hints_prefix = " ",
         },
+    },
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
     },
 }
