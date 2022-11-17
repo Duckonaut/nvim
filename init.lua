@@ -10,6 +10,8 @@ vim.opt.mouse = "a"
 vim.opt.scl = "yes"
 vim.opt.guifont = "Hack:h10"
 vim.opt.expandtab = true
+vim.opt.list = true
+vim.opt.listchars = "tab:➜ ,lead:·,trail:·"
 
 if ConfigMode == "rich" then
 	vim.opt.termguicolors = true
@@ -25,4 +27,5 @@ require("plugin-config")
 
 vim.cmd([[
     autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+    autocmd! BufNewFile,BufRead *.gd set noexpandtab
 ]])
