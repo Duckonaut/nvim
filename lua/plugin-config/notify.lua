@@ -1,3 +1,1 @@
-if ConfigMode == "rich" then
-	vim.notify = require("notify")
-end
+vim.notify = require("notify")

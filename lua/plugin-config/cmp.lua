@@ -38,11 +38,7 @@ local kind_icons = {
     TypeParameter = "",
 }
 
-local border_chars = nil
-
-if ConfigMode == "rich" then
-    border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-end
+local border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 
 cmp.setup({
     snippet = {
@@ -96,25 +92,15 @@ cmp.setup({
     formatting = {
         fields = { "menu", "abbr", "kind" },
         format = function(entry, vim_item)
-            if ConfigMode == "rich" then
-                -- Kind icons
-                vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-                -- Only icons: vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                vim_item.menu = ({
-                    nvim_lsp = " ",
-                    luasnip = " ",
-                    buffer = "﬘ ",
-                    path = " ",
-                })[entry.source.name]
-            else
-                vim_item.kind = string.format("%s", vim_item.kind)
-                vim_item.menu = ({
-                    nvim_lsp = "[LSP]  ",
-                    luasnip = "[SNIP] ",
-                    buffer = "[BUF]  ",
-                    path = "[PATH] ",
-                })[entry.source.name]
-            end
+            -- Kind icons
+            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            -- Only icons: vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            vim_item.menu = ({
+                nvim_lsp = " ",
+                luasnip = " ",
+                buffer = "﬘ ",
+                path = " ",
+            })[entry.source.name]
             return vim_item
         end,
     },

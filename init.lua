@@ -1,4 +1,10 @@
-ConfigMode = "rich" -- changes the config to suit either a full nerdfont/truecolor setup, or a simple 8 color tty ('rich' or 'simple')
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    is_bootstrap = true
+    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    vim.cmd [[packadd packer.nvim]]
+end
 
 vim.opt.number = true
 vim.opt.autoindent = true
@@ -12,18 +18,24 @@ vim.opt.guifont = "Hack:h10"
 vim.opt.expandtab = true
 vim.opt.list = true
 vim.opt.listchars = "tab:➜ ,lead:·,trail:·"
-
-if ConfigMode == "rich" then
-	vim.opt.termguicolors = true
-	vim.o.background = "dark"
-	vim.opt.clipboard = "unnamedplus"
-	vim.cmd("colorscheme onedarker")
-end
+vim.opt.termguicolors = true
+vim.o.background = "dark"
+vim.opt.clipboard = "unnamedplus"
 
 require("plugins")
+
+if is_bootstrap then
+    print("Bootstrapping complete. Restart when plugins are installed.")
+    require("packer").sync()
+
+    return
+end
+
 require("mappings")
 require("lsp")
 require("plugin-config")
+
+vim.cmd("colorscheme onedarker")
 
 vim.cmd([[
     autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl

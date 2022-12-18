@@ -1,1 +1,3 @@
-require("undotree").setup()
+require("undotree").setup({
+    float_diff = false,
+})
