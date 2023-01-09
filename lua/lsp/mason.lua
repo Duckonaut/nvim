@@ -37,7 +37,7 @@ for _, server in ipairs(external_servers) do
 end
 
 for _, lsp in ipairs(mason_lspconfig.get_installed_servers()) do
-    if lsp == "rust-analyzer" then
+    if lsp == "rust_analyzer" then
         local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
         opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
 
