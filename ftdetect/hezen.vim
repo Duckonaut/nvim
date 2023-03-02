@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.hez		set filetype=hezen
+au BufRead,BufNewFile *.hez set filetype=hezen
