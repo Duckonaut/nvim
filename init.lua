@@ -21,6 +21,9 @@ vim.opt.listchars = "tab:➜ ,lead:·,trail:·"
 vim.opt.termguicolors = true
 vim.o.background = "dark"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
 
 require("plugins")
 
