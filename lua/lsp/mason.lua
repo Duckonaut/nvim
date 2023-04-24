@@ -39,7 +39,7 @@ end
 for _, lsp in ipairs(mason_lspconfig.get_installed_servers()) do
     if lsp == "rust_analyzer" then
         local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
-        opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
+        -- local rust_opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
 
         local codelldb = require('mason-registry').get_package("codelldb"):get_install_path()
         local extension_path = codelldb .. '/extension/'
