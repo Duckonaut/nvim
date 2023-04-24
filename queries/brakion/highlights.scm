@@ -13,14 +13,15 @@
     "return"
     "while"
     "var"
+    "match"
+    "on"
+    "is"
+    "as"
 ] @keyword
 
 (visibility) @keyword
 
 [
-    "@"
-    "@="
-    "!@="
     "->"
     "|"
     "="
@@ -57,10 +58,12 @@
 ] @punctuation.bracket
 
 (functionSignature name: (identifier) @function)
-(functionParameters (typedIdentifier name: (identifier)) @variable.parameter)
+(functionParameters (functionParameter (typedIdentifier name: (identifier)) @variable.parameter))
+(functionParameters (functionParameter precondition: (namespacedIdentifier name: (identifier) @type)))
+(functionParameters precondition: (namespacedIdentifier name: (identifier) @type))
 
 (typedIdentifier name: (identifier) @variable)
-(typePrimary name: (identifier) @type)
+(typePrimary (namespacedIdentifier name: (identifier) @type))
 (typeDeclaration name: (identifier) @type)
 
 (variantDeclaration name: (identifier) @type)
@@ -71,13 +74,16 @@
 (module name: (identifier) @module)
 
 (traitImplementation implementor: (identifier) @type)
-(traitImplementation implementee: (identifier) @type)
+(traitImplementation implementee: (namespacedIdentifier name: (identifier) @type))
 
-(access module: (identifier) @module)
-(access name: (identifier) @property)
-(call (expression (access name: (identifier) @function)))
+(call (expression (primary (constructor (namespacedIdentifier name: (identifier) @function)))))
+(call (expression (primary (fieldAccess field: (identifier) @function))))
+(coalesceAccess type: (type (typePrimary (namespacedIdentifier name: (identifier) @type))))
+(fieldConstructor name: (identifier) @variable.parameter)
+(constructor (namespacedIdentifier name: (identifier) @type) . "{")
 
 (string) @string
+(char) @string
 (number) @number
 (builtin) @constant.builtin
 (builtinType) @type.builtin
