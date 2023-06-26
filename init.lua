@@ -38,7 +38,7 @@ require("mappings")
 require("lsp")
 require("plugin-config")
 
-vim.cmd("colorscheme onedarker")
+vim.cmd("colorscheme fenchurch")
 
 vim.cmd([[
     autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl

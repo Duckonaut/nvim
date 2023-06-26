@@ -76,5 +76,5 @@ return packer.startup(function(use)
     use({ 'RaafatTurki/hex.nvim', config = function() require('hex').setup() end })
     use({ "elkowar/yuck.vim" })
 
-    use({ "~/repos/fenchurch/fenchurch" })
+    use({ "Duckonaut/fenchurch" })
 end)
