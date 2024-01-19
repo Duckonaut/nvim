@@ -13,3 +13,4 @@ if not status then
 end
 
 ft.set("brakion", "#%s")
+ft.set("luax", "--%s")

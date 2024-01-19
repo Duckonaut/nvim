@@ -42,5 +42,29 @@ vim.cmd("colorscheme fenchurch")
 
 vim.cmd([[
     autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
-    autocmd! BufNewFile,BufRead *.gd set noexpandtab
+    autocmd! BufNewFile,BufRead *.gd setlocal noexpandtab
+    autocmd! BufNewFile,BufRead *.ts,*.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd! BufNewFile,BufRead *.js,*.jsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd! BufNewFile,BufRead *.luax,*.html,*.css,*.scss,*.json,*.yml,*.yaml,*.md,*.markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
+]])
+
+-- zen mode
+vim.cmd([[
+    function! ZenMode()
+        if !exists('g:zen_mode')
+            let g:zen_mode = 0
+        endif
+        if g:zen_mode == 0
+            setlocal nolist
+            setlocal nonumber
+            lua require('lualine').hide()
+            g:zen_mode = 1
+        else
+            setlocal list
+            setlocal number
+            lua require('lualine').hide({unhide=true})
+            g:zen_mode = 0
+        endif
+    endfunction
+    command! ZenMode call ZenMode()
 ]])
