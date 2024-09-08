@@ -1,6 +1,5 @@
-require("plugin-config.luasnip")
+require("plugin-config.luasnips")
 require("plugin-config.cmp")
-require("plugin-config.web-devicons")
 require("plugin-config.lualine")
 require("plugin-config.nvim-tree")
 require("plugin-config.telescope")

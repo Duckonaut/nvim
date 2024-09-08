@@ -1,5 +1,3 @@
-local toggleterm = require("toggleterm")
-
 local Terminal = require("toggleterm.terminal").Terminal
 
 local lazygit = Terminal:new({
@@ -16,11 +14,11 @@ local lazygit = Terminal:new({
   end,
 })
 
-function _lazygit_toggle()
+function G_lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua G_lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 local standard = Terminal:new({
   cmd = "zsh",
@@ -29,16 +27,16 @@ local standard = Terminal:new({
     border = "single",
   },
   -- function to run on opening the terminal
-  on_open = function(term)
+  on_open = function()
     vim.cmd("startinsert!")
   end,
 })
 
-function _standard_toggle()
+function G_standard_toggle()
   standard:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>lua _standard_toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>lua G_standard_toggle()<CR>", { noremap = true, silent = true })
 
 -- setup standard term toggle from terminal
-vim.api.nvim_set_keymap("t", "<leader>tt", "<C-\\><C-n><cmd>lua _standard_toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<leader>tt", "<C-\\><C-n><cmd>lua G_standard_toggle()<CR>", { noremap = true, silent = true })
