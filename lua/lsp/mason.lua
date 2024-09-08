@@ -22,6 +22,7 @@ end
 
 local external_servers = {
     "gdscript",
+    "zls",
 }
 
 handlers.setup()
