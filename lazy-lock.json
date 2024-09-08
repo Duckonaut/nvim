@@ -8,7 +8,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "copilot.vim": { "branch": "release", "commit": "782461159655b259cff10ecff05efa761e3d4764" },
   "editorconfig.nvim": { "branch": "master", "commit": "5b9e303e1d6f7abfe616ce4cc8d3fffc554790bf" },
-  "fenchurch": { "branch": "main", "commit": "10abfb48a6f16dee0b7faa70a4123c9d1376a1ec" },
+  "fenchurch": { "branch": "main", "commit": "5302fd2f54e2210bc5569a14ee7480419ab87ecc" },
   "fidget.nvim": { "branch": "main", "commit": "d855eed8a06531a7e8fd0684889b2943f373c469" },
   "fog_of_war.nvim": { "branch": "main", "commit": "1c4105ca0f3bfd341ceef1180c39f1d69a3bc30f" },
   "formatter.nvim": { "branch": "master", "commit": "ad246d34ce7a32f752071ed81b09b94e6b127fad" },
