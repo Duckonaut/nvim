@@ -99,3 +99,6 @@ map(normal_mode, "<F10>", ":lua require'dap'.step_over()<CR>", opts)
 
 -- Undotree
 map(normal_mode, "<leader>ut", ":lua require'undotree'.toggle()<CR>", opts)
+
+-- Custom workflow
+map(normal_mode, "<leader>wr", ":lua require'workflow'.run()<CR>", opts)
