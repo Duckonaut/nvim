@@ -2,26 +2,29 @@ local M = {}
 
 -- TODO: backfill this to template
 M.setup = function()
-    local signs = {
-        { name = "DiagnosticSignError", text = "" },
-        { name = "DiagnosticSignWarn", text = "" },
-        { name = "DiagnosticSignHint", text = "" },
-        { name = "DiagnosticSignInfo", text = "" },
+    local sign_map = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.WARN] = '',
+        [vim.diagnostic.severity.INFO] = '',
+        [vim.diagnostic.severity.HINT] = '',
     }
-
-    for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-    end
-
     local config = {
         -- enable virtual text
         virtual_text = {
-            prefix = "",
+            prefix = function(diagnostic)
+                if sign_map[diagnostic.severity] == nil then
+                    return ""
+                else
+                    return sign_map[diagnostic.severity]
+                end
+            end,
             spacing = 1,
         },
-        -- show signs
+        virtual_lines = {
+            current_line = true,
+        },
         signs = {
-            active = signs,
+            text = sign_map,
         },
         update_in_insert = true,
         underline = true,
@@ -37,20 +40,12 @@ M.setup = function()
     }
 
     vim.diagnostic.config(config)
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-    })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "rounded",
-    })
 end
 
 local function lsp_highlight_document(client)
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
-        vim.api.nvim_exec(
+        vim.api.nvim_exec2(
             [[
               augroup lsp_document_highlight
                 autocmd! * <buffer>
@@ -58,16 +53,14 @@ local function lsp_highlight_document(client)
                 autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
               augroup END
             ]],
-            false
+            { output = false }
         )
     end
 end
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(client)
     lsp_highlight_document(client)
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then

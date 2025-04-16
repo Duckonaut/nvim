@@ -65,7 +65,8 @@ for _, lsp in ipairs(mason_lspconfig.get_installed_servers()) do
     else
         local req_status, config = pcall(require, "lsp.settings." .. lsp)
         if req_status then
-            lspconfig[lsp].setup(vim.tbl_deep_extend("force", opts, config))
+            local full_config = vim.tbl_deep_extend("force", opts, config)
+            lspconfig[lsp].setup(full_config)
         else
             lspconfig[lsp].setup(opts)
         end
