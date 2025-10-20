@@ -1,12 +1,10 @@
-local status, dap = pcall(require, "dap")
-if not status then
-    return
-end
+local dap = require("dap")
+local dapui = require("dapui")
 
-local status, dapui = pcall(require, "dapui")
-if not status then
-    return
-end
+dap.adapters.codelldb = {
+    type = "executable",
+    command = vim.fn.expand("$MASON/packages/codelldb/codelldb"),
+}
 
 dapui.setup({
     layouts = {

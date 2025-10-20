@@ -20,9 +20,6 @@ M.setup = function()
             end,
             spacing = 1,
         },
-        virtual_lines = {
-            current_line = true,
-        },
         signs = {
             text = sign_map,
         },

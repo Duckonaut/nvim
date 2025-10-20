@@ -6,9 +6,13 @@ return {
             require("lsp_extensions")   -- just starts lsp_extensions so it's really ok here
         end,
     },
-    { "hood/popui.nvim" },         -- list selection UI
-    { "simrat39/rust-tools.nvim" },
-    { "williamboman/mason.nvim" }, -- new LSP server installer
+    { "hood/popui.nvim" }, -- list selection UI
+    {
+        "mrcjkb/rustaceanvim",
+        version = "^6",
+        lazy = false,
+    },                                           -- Rust tools and LSP config
+    { "williamboman/mason.nvim",          lazy = false }, -- new LSP server installer
     { "williamboman/mason-lspconfig.nvim" },
     { "github/copilot.vim" },
     {
@@ -46,7 +50,9 @@ return {
     { "numToStr/Comment.nvim" },         -- comment out sections of code in a ton of languages
     { "nvim-lualine/lualine.nvim" },     -- status bar at the bottom
     { "mfussenegger/nvim-dap" },         -- debugger
+    { "nvim-neotest/nvim-nio" },
     { "rcarriga/nvim-dap-ui" },          -- debugger UI
+    { "theHamsta/nvim-dap-virtual-text" }, -- virtual text for the debugger
     { "mfussenegger/nvim-lint" },        -- linter
     { "mhartington/formatter.nvim" },    -- formatter
     { "b0o/schemastore.nvim" },          -- json schema store for autocompletion in common json formats

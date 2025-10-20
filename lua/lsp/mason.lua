@@ -1,4 +1,4 @@
-local status_ok, mason, mason_lspconfig, lspconfig, handlers
+local status_ok, mason, mason_lspconfig, handlers
 
 status_ok, mason = pcall(require, "mason")
 if not status_ok then
@@ -6,11 +6,6 @@ if not status_ok then
 end
 
 status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
-    return
-end
-
-status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
     return
 end
@@ -34,41 +29,17 @@ local opts = {
 }
 
 for _, server in ipairs(external_servers) do
-    lspconfig[server].setup(opts)
+    vim.lsp.enable(server)
+    vim.lsp.config(server, opts)
 end
 
 for _, lsp in ipairs(mason_lspconfig.get_installed_servers()) do
-    if lsp == "rust_analyzer" then
-        local rust_analyzer_opts = require("lsp.settings.rust-analyzer")
-        -- local rust_opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
-
-        local codelldb = require('mason-registry').get_package("codelldb"):get_install_path()
-        local extension_path = codelldb .. '/extension/'
-        local codelldb_path = extension_path .. 'adapter/codelldb'
-        local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-
-        require("rust-tools").setup {
-            server = rust_analyzer_opts,
-            tools = { -- rust-tools options
-                autoSetHints = true,
-                inlay_hints = {
-                    show_parameter_hints = true,
-                    parameter_hints_prefix = " ",
-                    other_hints_prefix = " ",
-                },
-            },
-            dap = {
-                adapter = require('rust-tools.dap').get_codelldb_adapter(
-                    codelldb_path, liblldb_path)
-            },
-        }
+    vim.lsp.enable(lsp)
+    local req_status, config = pcall(require, "lsp.settings." .. lsp)
+    if req_status then
+        local full_config = vim.tbl_deep_extend("force", opts, config)
+        vim.lsp.config(lsp, full_config)
     else
-        local req_status, config = pcall(require, "lsp.settings." .. lsp)
-        if req_status then
-            local full_config = vim.tbl_deep_extend("force", opts, config)
-            lspconfig[lsp].setup(full_config)
-        else
-            lspconfig[lsp].setup(opts)
-        end
+        vim.lsp.config(lsp, opts)
     end
 end

@@ -94,6 +94,7 @@ map(normal_mode, "<leader>du", ":lua require'dapui'.toggle()<CR>", opts)
 map(normal_mode, "<leader>dv", ":lua require'dap.ui.widgets'.hover()<CR>", opts)
 map(normal_mode, "<F9>", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 map(normal_mode, "<F5>", ":lua require'dap'.continue()<CR>", opts)
+map(normal_mode, "<F6>", ":lua require'dap'.terminate()<CR>", opts)
 map(normal_mode, "<F11>", ":lua require'dap'.step_into()<CR>", opts)
 map(normal_mode, "<F10>", ":lua require'dap'.step_over()<CR>", opts)
 
