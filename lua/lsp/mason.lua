@@ -20,8 +20,17 @@ local external_servers = {
     "zls",
 }
 
+mason_lspconfig.setup({
+    automatic_enable = false,
+})
+
 handlers.setup()
-mason.setup()
+mason.setup({
+    registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+    },
+})
 
 local opts = {
     on_attach = handlers.on_attach,
@@ -30,7 +39,13 @@ local opts = {
 
 for _, server in ipairs(external_servers) do
     vim.lsp.enable(server)
-    vim.lsp.config(server, opts)
+    local req_status, config = pcall(require, "lsp.settings." .. server)
+    if req_status then
+        local full_config = vim.tbl_deep_extend("force", opts, config)
+        vim.lsp.config(server, full_config)
+    else
+        vim.lsp.config(server, opts)
+    end
 end
 
 for _, lsp in ipairs(mason_lspconfig.get_installed_servers()) do

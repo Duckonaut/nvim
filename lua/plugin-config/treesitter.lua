@@ -48,6 +48,16 @@ parser_configs.luax = {
     filetype = "luax", -- if filetype does not match the parser name
 }
 
+parser_configs.lesl = {
+    install_info = {
+      url = 'https://github.com/Duckonaut/tree-sitter-lesl',
+      files = { "src/parser.c" },
+      branch = 'main', -- only needed if different from default branch
+      generate = true, -- only needed if repo does not contain pre-generated `src/parser.c`
+      queries = 'queries', -- also install queries from given directory
+    },
+  }
+
 require("nvim-treesitter.configs").setup({
     highlight = {
         enable = true,

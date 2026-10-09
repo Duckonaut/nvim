@@ -83,7 +83,7 @@ map(normal_mode, "<leader>tgc", ":Telescope git_commits<CR>", opts)
 map(normal_mode, "<leader>tgb", ":Telescope git_branches<CR>", opts)
 
 -- Symbols outline
-map(normal_mode, "<leader>s", ":SymbolsOutline<CR>", opts)
+map(normal_mode, "<leader>s", ":Outline<CR>", opts)
 
 -- DAP
 map(normal_mode, "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", opts)

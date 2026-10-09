@@ -11,10 +11,10 @@ return {
         "mrcjkb/rustaceanvim",
         version = "^6",
         lazy = false,
-    },                                           -- Rust tools and LSP config
+    },                                                    -- Rust tools and LSP config
     { "williamboman/mason.nvim",          lazy = false }, -- new LSP server installer
     { "williamboman/mason-lspconfig.nvim" },
-    { "github/copilot.vim" },
+    --{ "github/copilot.vim" },
     {
         "nvim-telescope/telescope.nvim", -- anything-finder with a nice UI
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -32,41 +32,37 @@ return {
             "saadparwaiz1/cmp_luasnip", -- cmp snippet source
         },
     },
+    { "rcarriga/nvim-notify" },                                       -- pretty notifications
 
-    { "rcarriga/nvim-notify" },            -- pretty notifications
-
-    { "windwp/nvim-autopairs" },           -- automatic parentheses and braces pairs
-    { "nvim-treesitter/nvim-treesitter" }, -- greater syntax highlighting
-    { "nvim-treesitter/playground" },      -- treesitter playground
-    { "kyazdani42/nvim-tree.lua" },        -- file explorer
+    { "windwp/nvim-autopairs" },                                      -- automatic parentheses and braces pairs
+    { "nvim-treesitter/nvim-treesitter",         branch = "master" }, -- greater syntax highlighting
+    { "kyazdani42/nvim-tree.lua" },                                   -- file explorer
     {
-        "folke/which-key.nvim",            -- for when you don't know a key combination
+        "folke/which-key.nvim",                                       -- for when you don't know a key combination
         opts = {
             delay = function(ctx)
                 return ctx.plugin and 0 or 400
             end,
         }
     },
-    { "numToStr/Comment.nvim" },         -- comment out sections of code in a ton of languages
-    { "nvim-lualine/lualine.nvim" },     -- status bar at the bottom
-    { "mfussenegger/nvim-dap" },         -- debugger
+    { "numToStr/Comment.nvim" },           -- comment out sections of code in a ton of languages
+    { "nvim-lualine/lualine.nvim" },       -- status bar at the bottom
+    { "mfussenegger/nvim-dap" },           -- debugger
     { "nvim-neotest/nvim-nio" },
-    { "rcarriga/nvim-dap-ui" },          -- debugger UI
+    { "rcarriga/nvim-dap-ui" },            -- debugger UI
     { "theHamsta/nvim-dap-virtual-text" }, -- virtual text for the debugger
-    { "mfussenegger/nvim-lint" },        -- linter
-    { "mhartington/formatter.nvim" },    -- formatter
-    { "b0o/schemastore.nvim" },          -- json schema store for autocompletion in common json formats
-    { "AlphaTechnolog/onedarker.nvim" },
-    { "kyazdani42/nvim-web-devicons", }, -- cool pretty icons
-    { "simrat39/symbols-outline.nvim" },
+    { "mfussenegger/nvim-lint" },          -- linter
+    { "mhartington/formatter.nvim" },      -- formatter
+    { "b0o/schemastore.nvim" },            -- json schema store for autocompletion in common json formats
+    { "kyazdani42/nvim-web-devicons", },   -- cool pretty icons
+    { "hedyhli/outline.nvim" },
     { "jiaoshijie/undotree" },
     { "j-hui/fidget.nvim" },
     { "lewis6991/gitsigns.nvim" },
     { "gpanders/editorconfig.nvim" },
-    { 'RaafatTurki/hex.nvim',         opts = {} },
     { "elkowar/yuck.vim" },
     { "akinsho/toggleterm.nvim" },
 
     { "Duckonaut/fenchurch" },
-    { "Duckonaut/fog_of_war.nvim",    opts = {} },
+    { "Duckonaut/fog_of_war.nvim",      opts = {} },
 }

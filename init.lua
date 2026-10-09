@@ -60,6 +60,15 @@ vim.cmd([[
     autocmd! BufNewFile,BufRead *.luax,*.html,*.css,*.scss,*.json,*.yml,*.yaml,*.md,*.markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
 ]])
 
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function (args)
+        local parser = vim.treesitter.get_parser(0)
+        if parser ~= nil then
+            parser:register_cbs({ on_bytes = function() parser:parse() end })
+        end
+    end
+})
+
 -- zen mode
 vim.cmd([[
     function! ZenMode()
